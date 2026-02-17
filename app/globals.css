@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Clean Corporate Theme (Light) */
+  --background: 0 0% 100%;
+  /* Pure White */
+  --foreground: 222 47% 11%;
+  /* Deep Slate Check */
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  /* PRIMARY: Deep Enterprise Blue (Financial Trust) */
+  --primary: 221 83% 53%;
+  /* #3b82f6 - Standard Blue, but tweaked to feel corporate */
+  --primary-foreground: 210 40% 98%;
+
+  /* SECONDARY: Soft Grayish Blue for subtle UI */
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222 47% 11%;
+
+  /* MUTED: For secondary text */
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  /* ACCENT: Highlights */
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222 47% 11%;
+
+  /* DESTRUCTIVE: Red for Blocked/Fraud */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221 83% 53%;
+
+  --radius: 0.5rem;
+
+  /* Charts - Enterprise Palette */
+  --chart-1: 221 83% 53%;
+  /* Blue */
+  --chart-2: 173 58% 39%;
+  /* Teal */
+  --chart-3: 197 37% 24%;
+  /* Dark Slate */
+  --chart-4: 43 74% 66%;
+  /* Gold (Warning/Review) */
+  --chart-5: 0 84% 60%;
+  /* Red (Fraud) */
+
+  /* Sidebar Theme */
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-neo-cyan: var(--primary);
+  /* Remapped for legacy refs */
+  --color-electric-purple: var(--chart-2);
+  /* Remapped */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Classes - Enterprise Style (More subtle) */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--primary));
+  color: white;
 }

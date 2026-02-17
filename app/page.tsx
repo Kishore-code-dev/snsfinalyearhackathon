@@ -1,65 +1,52 @@
-import Image from "next/image";
+"use client";
+
+import GenesisHero from "@/components/landing/GenesisHero";
+import ProblemSection from "@/components/landing/ProblemSection";
+import FeatureDeepDive from "@/components/landing/FeatureDeepDive";
+import FAQSection from "@/components/landing/FAQSection";
+import Footer from "@/components/layout/Footer";
+import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-[#020005] font-[family-name:var(--font-outfit)]">
+      <NoiseOverlay />
+
+      {/* 1. Hero: The Hook */}
+      <GenesisHero />
+
+      {/* 2. Problem: The Gap */}
+      <ProblemSection />
+
+      {/* 3. Deep Feature Analysis (Alternating) */}
+      <FeatureDeepDive />
+
+      {/* 4. FAQ */}
+      <FAQSection />
+
+      {/* 5. Final CTA */}
+      <section className="py-32 bg-gradient-to-b from-[#020005] to-cyan-950/20 relative z-10 text-center overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter">
+            Let's Build Your <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">Living Supply Chain.</span>
+          </h2>
+          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            Join the network of autonomous enterprises. Stop managing documents. Start managing flow.
           </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <button className="px-10 py-5 bg-white text-black font-bold text-lg rounded-full hover:bg-cyan-50 transition-all shadow-xl hover:shadow-cyan-500/20 scale-105 hover:scale-110 duration-300">
+              Book a Demo
+            </button>
+            <button className="px-10 py-5 border border-white/10 text-white font-medium text-lg rounded-full hover:bg-white/5 transition-colors">
+              Contact Sales
+            </button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }

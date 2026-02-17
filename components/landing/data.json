@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Broken: The Static Void",
+        "description": "ERPs are data coffins. When a supplier changes a price or a shipment is delayed, your system doesn't know until it's too late.",
+        "icon": "Database",
+        "stat": "40% Manual Touch",
+        "status": "DANGER"
+    },
+    {
+        "title": "Healed: The Living Network",
+        "description": "XYLO transforms static rows into active agents. They negotiate variances, update ETAs, and reconcile invoices autonomously.",
+        "icon": "Zap",
+        "stat": "99.9% Accuracy",
+        "status": "OPTIMAL"
+    }
+]
