@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowRight, Zap } from "lucide-react";
+import { Menu, X, ArrowRight, Shield as ShieldAlert } from "lucide-react";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +13,10 @@ export default function Navbar() {
 
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '/'}>
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.5)]">
-                            <Zap className="w-5 h-5 text-white" />
+                        <div className="w-8 h-8 rounded-md bg-gradient-to-br from-[#1F6BFF] to-[#0A4BBF] flex items-center justify-center shadow-[0_0_15px_rgba(31,107,255,0.3)]">
+                            <ShieldAlert className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-xl tracking-wider text-white">XYLO</span>
+                        <span className="font-bold text-xl tracking-tight text-white antialiased">VERTIXA</span>
                     </div>
 
                     {/* Desktop Menu */}

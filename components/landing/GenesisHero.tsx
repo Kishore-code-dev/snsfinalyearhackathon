@@ -2,67 +2,54 @@
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
-import { ArrowRight, Terminal as TerminalIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-import Scene3D from "@/components/landing/Scene3D";
-import { Shield, Sparkles, Zap, BrainCircuit, Globe } from "lucide-react";
-
-const metrics = [
-    { label: "Accuracy", value: "99.9%", icon: Shield },
-    { label: "Processing", value: "< 2s", icon: Zap },
-    { label: "Cost Saving", value: "85%", icon: Sparkles }
-];
 
 export default function GenesisHero() {
     return (
-        <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-black overflow-hidden font-[family-name:var(--font-outfit)]">
+        <section className="relative min-h-[90vh] w-full flex flex-col items-center justify-center bg-[#0B0F14] overflow-hidden font-[family-name:var(--font-outfit)]">
             <Navbar />
 
-            {/* 3D Visualizer Layer */}
-            <Scene3D />
+            {/* Minimal Grid Background */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-            {/* Noise & Grain Overlay */}
-            <div className="absolute inset-0 noise z-20" />
+            {/* Subtle Blue Glow Header */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[300px] bg-[#1F6BFF]/5 blur-[120px] rounded-full pointer-events-none" />
 
             {/* Content Container */}
             <div className="relative z-30 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
 
-                {/* Status Badge */}
+                {/* Branding Badge */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-white/10 shadow-2xl"
+                    className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5 shadow-2xl"
                 >
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                    </span>
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-white/80 font-bold">
-                        Now Live: XYLO v1.2 Enterprise
+                    <span className="text-[10px] uppercase tracking-[0.3em] text-[#1F6BFF] font-bold">
+                        Enterprise Grade Security
                     </span>
                 </motion.div>
 
-                {/* Main Heading with Cinematic Effect */}
-                <div className="max-w-4xl space-y-6">
+                {/* Main Heading */}
+                <div className="max-w-5xl space-y-6">
                     <motion.h1
-                        initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-                        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-6xl md:text-9xl font-bold tracking-tight text-white leading-[0.85]"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-5xl md:text-8xl font-bold tracking-tight text-white leading-[0.95]"
                     >
-                        THE FUTURE OF <br />
-                        <span className="text-gradient drop-shadow-2xl">FINANCIAL AGENTS.</span>
+                        AI-Powered Local B2B <br />
+                        <span className="text-[#1F6BFF]">Invoice Authenticity</span> <br />
+                        <span className="text-white/40 italic">&</span> Fraud Detection.
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light"
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                        className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium mt-8"
                     >
-                        Autonomous <strong>AI Swarms</strong> that orchestrate procurement, extraction, and ERP reconciliation with cinematic precision.
+                        Securing the financial back-office of local businesses through automated neural invoice verification and bank detail validation.
                     </motion.p>
                 </div>
 
@@ -71,41 +58,20 @@ export default function GenesisHero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="flex flex-wrap justify-center gap-6 mt-12"
+                    className="flex flex-wrap justify-center gap-6 mt-16"
                 >
-                    <Link href="/dashboard" className="group relative px-10 py-5 bg-white text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity" />
-                        Deploy Suite <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <Link href="/dashboard" className="px-10 py-5 bg-[#1F6BFF] text-white font-bold rounded-md hover:bg-[#1F6BFF]/90 transition-all shadow-[0_0_20px_rgba(31,107,255,0.2)] flex items-center gap-3">
+                        Secure Your Operations <ArrowRight className="w-5 h-5" />
                     </Link>
 
-                    <button className="px-10 py-5 glass-dark border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
-                        <Globe className="w-5 h-5 text-purple-400" /> View Live Demo
+                    <button className="px-10 py-5 bg-white/[0.02] border border-white/10 text-white font-bold rounded-md hover:bg-white/[0.05] transition-all flex items-center gap-3">
+                        Request Audit Risk Report
                     </button>
-                </motion.div>
-
-                {/* Metrics Marquee/Social Proof */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                    className="mt-24 w-full grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5 pt-12"
-                >
-                    {metrics.map((m, i) => (
-                        <div key={i} className="flex flex-col items-center gap-4 group">
-                            <div className="p-3 rounded-2xl glass border border-white/5 group-hover:border-purple-500/30 transition-colors shadow-2xl">
-                                <m.icon className="w-6 h-6 text-purple-400" />
-                            </div>
-                            <div className="text-center">
-                                <span className="block text-3xl font-bold font-mono text-white mb-1">{m.value}</span>
-                                <span className="text-[10px] uppercase tracking-widest text-white/30 font-bold">{m.label}</span>
-                            </div>
-                        </div>
-                    ))}
                 </motion.div>
             </div>
 
-            {/* Bottom Glow */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120vw] h-[30vh] bg-purple-900/10 blur-[150px] opacity-60 rounded-full" />
+            {/* Institutional Bottom Glow */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120vw] h-[20vh] bg-[#1F6BFF]/5 blur-[150px] opacity-40 rounded-full" />
         </section>
     );
 }
