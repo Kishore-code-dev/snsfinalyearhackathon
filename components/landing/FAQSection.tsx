@@ -27,28 +27,33 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="py-24 bg-[#020005]">
-            <div className="max-w-3xl mx-auto px-6">
-                <h2 className="text-3xl font-bold text-white mb-12 text-center">Frequently Asked Questions</h2>
+        <section id="faq" className="py-32 bg-black relative overflow-hidden">
+            <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-purple-900/5 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="max-w-4xl mx-auto px-6 relative z-10">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Technical <span className="text-white/30 italic">Insights.</span></h2>
+                    <p className="text-white/40">Everything you need to know about the XYLO Intelligence Layer.</p>
+                </div>
 
                 <div className="space-y-4">
                     {faqs.map((faq, idx) => (
-                        <div key={idx} className="border-b border-white/10 pb-4">
+                        <div key={idx} className="glass-dark border border-white/5 rounded-2xl overflow-hidden px-6">
                             <button
                                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                                className="w-full flex justify-between items-center py-4 text-left group"
+                                className="w-full flex justify-between items-center py-6 text-left group"
                             >
-                                <span className="text-lg text-white font-medium group-hover:text-cyan-400 transition-colors">{faq.q}</span>
-                                <Plus className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${openIndex === idx ? 'rotate-45 text-cyan-400' : ''}`} />
+                                <span className="text-lg text-white font-medium group-hover:text-purple-400 transition-colors tracking-tight">{faq.q}</span>
+                                <Plus className={`w-5 h-5 text-white/20 transition-transform duration-500 ${openIndex === idx ? 'rotate-45 text-purple-400' : ''}`} />
                             </button>
 
                             <motion.div
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: openIndex === idx ? 'auto' : 0, opacity: openIndex === idx ? 1 : 0 }}
-                                transition={{ duration: 0.3 }}
+                                transition={{ duration: 0.5, ease: "circOut" }}
                                 className="overflow-hidden"
                             >
-                                <p className="text-gray-400 pb-4 leading-relaxed">
+                                <p className="text-white/40 pb-6 leading-relaxed font-light text-base max-w-2xl">
                                     {faq.a}
                                 </p>
                             </motion.div>
@@ -57,5 +62,6 @@ export default function FAQSection() {
                 </div>
             </div>
         </section>
+
     );
 }

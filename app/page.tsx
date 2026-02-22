@@ -1,8 +1,8 @@
 "use client";
 
 import GenesisHero from "@/components/landing/GenesisHero";
-import ProblemSection from "@/components/landing/ProblemSection";
-import FeatureDeepDive from "@/components/landing/FeatureDeepDive";
+import ProblemLuxe from "@/components/landing/ProblemLuxe";
+import LuxeFeatures from "@/components/landing/LuxeFeatures";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/layout/Footer";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
@@ -12,17 +12,18 @@ export default function Home() {
     <main className="min-h-screen bg-[#020005] font-[family-name:var(--font-outfit)]">
       <NoiseOverlay />
 
-      {/* 1. Hero: The Hook */}
+      {/* Hero: The Cinematic Hook */}
       <GenesisHero />
 
-      {/* 2. Problem: The Gap */}
-      <ProblemSection />
+      {/* Problem: The Luxury Analysis */}
+      <ProblemLuxe />
 
-      {/* 3. Deep Feature Analysis (Alternating) */}
-      <FeatureDeepDive />
+      {/* Features: The Interactive Showcase */}
+      <LuxeFeatures />
 
-      {/* 4. FAQ */}
+      {/* FAQ */}
       <FAQSection />
+
 
       {/* 5. Final CTA */}
       <section className="py-32 bg-gradient-to-b from-[#020005] to-cyan-950/20 relative z-10 text-center overflow-hidden">
