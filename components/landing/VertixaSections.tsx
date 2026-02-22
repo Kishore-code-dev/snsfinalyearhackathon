@@ -58,17 +58,24 @@ export function MarketUrgency() {
                     {metrics.map((m, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{
+                                scale: 1.02,
+                                borderColor: "rgba(31, 107, 255, 0.4)",
+                                boxShadow: "0 0 30px rgba(31, 107, 255, 0.15)"
+                            }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.5 }}
-                            className="p-8 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#1F6BFF]/30 transition-all group relative"
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20,
+                                delay: i * 0.1
+                            }}
+                            className="p-8 rounded-xl bg-white/[0.02] border border-white/5 transition-colors group relative"
                         >
-                            {/* Blue glow on hover */}
-                            <div className="absolute inset-0 bg-[#1F6BFF]/5 opacity-0 group-hover:opacity-100 transition-opacity blur-xl rounded-xl" />
-
-                            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-bold mb-4">{m.label}</p>
-                            <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">{m.value}</span>
+                            <p className="text-[#1F6BFF] text-[9px] uppercase tracking-[0.3em] font-bold mb-4 opacity-50">{m.label}</p>
+                            <span className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-none">{m.value}</span>
                         </motion.div>
                     ))}
                 </div>
