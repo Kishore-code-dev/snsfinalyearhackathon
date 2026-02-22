@@ -1,6 +1,6 @@
 "use client";
 
-import GenesisHero from "@/components/landing/GenesisHero";
+import GenesisHeroV3 from "@/components/landing/GenesisHeroV3";
 import RiskAwarenessBanner, { MarketUrgency, SystemFailure } from "@/components/landing/VertixaSections";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/layout/Footer";
@@ -14,8 +14,9 @@ export default function Home() {
       {/* 1. Executive Risk Awareness Banner */}
       <RiskAwarenessBanner />
 
-      {/* 2. Hero: The Institutional Hook */}
-      <GenesisHero />
+      {/* 2. Hero: The Tactical Bento Command Center */}
+      <GenesisHeroV3 />
+
 
       {/* 3. Market Urgency: The Metric Proof */}
       <MarketUrgency />
