@@ -170,7 +170,32 @@ Returns array of all processed invoices with timestamps and decisions.
 
 ---
 
-## **Next Steps for Production**
+## 📚 Project Documentation
+
+Detailed guides and reports are available in the `docs/` folder:
+- [Pitching Document](./docs/PITCH_DOCUMENT.md) - **Hackathon Pitch Deck**
+- [MVP Delivery Package](./docs/MVP_DELIVERY.md) - System overview
+- [Deployment Guide](./docs/DEPLOYMENT.md) - Step-by-step launch instructions
+- [Test Results](./docs/TEST_RESULTS.md) - QA & Verification report
+- [Vision AI Status](./docs/VISION_STATUS.md) - Extended capabilities
+
+---
+
+## 🚀 Deployment (Render/GitHub)
+
+1. **GitHub**:
+   ```bash
+   git remote add origin YOUR_REPO_URL
+   git push -u origin master
+   ```
+2. **Render**:
+   - Connect your GitHub repo to Render.
+   - Use the **Blueprint** feature to automatically deploy via `render.yaml`.
+   - Update `NEXT_PUBLIC_API_URL` in the frontend environment variables to point to your live backend.
+
+---
+
+## 🎯 Next Steps for Production
 
 1. **Database Integration**: Connect backend to Supabase for persistent storage
 2. **OCR Support**: Add Tesseract or Google Document AI for PDF parsing
