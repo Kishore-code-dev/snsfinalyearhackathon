@@ -6,7 +6,7 @@ services:
     plan: free
     envVars:
       - key: PROJECT_NAME
-        value: "XYLO AI Invoice System"
+        value: "VERTIXA AI Invoice System"
 
   # Next.js Frontend
   - type: web

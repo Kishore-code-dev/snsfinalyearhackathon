@@ -2,23 +2,23 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Zap, Twitter, Linkedin, Github } from "lucide-react";
+import { ShieldAlert, Twitter, Linkedin, Github } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#020005] border-t border-white/5 pt-24 pb-12 relative overflow-hidden z-10">
+        <footer className="bg-[#05070a] border-t border-white/5 pt-24 pb-12 relative overflow-hidden z-10">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
                 {/* Brand Column */}
                 <div className="md:col-span-1 space-y-6">
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.5)]">
-                            <Zap className="w-5 h-5 text-white" />
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1F6BFF] to-[#0A4BBF] flex items-center justify-center shadow-[0_0_15px_rgba(31,107,255,0.3)]">
+                            <ShieldAlert className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-bold text-xl tracking-wider text-white">XYLO</span>
+                        <span className="font-bold text-xl tracking-wider text-white">VERTIXA</span>
                     </div>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                        The Biological Supply Chain Intelligence Platform. Transforming dead data into living outcomes.
+                    <p className="text-white/40 text-sm leading-relaxed font-medium">
+                        The Institutional Layer for B2B Authenticity. Securing the global financial back-office through neural anomaly detection.
                     </p>
                     <div className="flex gap-4">
                         <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
@@ -35,44 +35,44 @@ export default function Footer() {
 
                 {/* Product Links */}
                 <div>
-                    <h4 className="text-white font-semibold mb-6">Product</h4>
-                    <ul className="space-y-4 text-gray-400 text-sm">
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Genesis Engine</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Neural Match</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Vendor Portal</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Integrations</Link></li>
+                    <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-6">Product</h4>
+                    <ul className="space-y-4 text-white/40 text-sm font-medium">
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Neural Core</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Forensic Match</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Risk Monitor</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Infrastructure</Link></li>
                     </ul>
                 </div>
 
                 {/* Solutions Links */}
                 <div>
-                    <h4 className="text-white font-semibold mb-6">Solutions</h4>
-                    <ul className="space-y-4 text-gray-400 text-sm">
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">For Procurement</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">For Finance</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">For Suppliers</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Enterprise</Link></li>
+                    <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-6">Solutions</h4>
+                    <ul className="space-y-4 text-white/40 text-sm font-medium">
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">For CFOs</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">For AP Teams</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Treasury Risk</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Global Trade</Link></li>
                     </ul>
                 </div>
 
                 {/* Company Links */}
                 <div>
-                    <h4 className="text-white font-semibold mb-6">Company</h4>
-                    <ul className="space-y-4 text-gray-400 text-sm">
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Manifesto</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Careers</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Blog</Link></li>
-                        <li><Link href="#" className="hover:text-cyan-400 transition-colors">Contact</Link></li>
+                    <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-6">Company</h4>
+                    <ul className="space-y-4 text-white/40 text-sm font-medium">
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Transparency</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Audit Trails</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Documentation</Link></li>
+                        <li><Link href="#" className="hover:text-[#1F6BFF] transition-colors">Strategic Support</Link></li>
                     </ul>
                 </div>
 
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2026 XYLO Inc. All rights reserved.</p>
+            <div className="max-w-7xl mx-auto px-6 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/20 uppercase tracking-widest font-bold">
+                <p>&copy; 2026 VERTIXA INSTITUTIONAL. All rights reserved.</p>
                 <div className="flex gap-8 mt-4 md:mt-0">
-                    <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                    <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                    <Link href="#" className="hover:text-white transition-colors">Privacy Shield</Link>
+                    <Link href="#" className="hover:text-white transition-colors">Governance Terms</Link>
                 </div>
             </div>
         </footer>

@@ -8,8 +8,8 @@ import VisualMouseLayer from '@/components/visual-control/VisualMouseLayer'
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 
 export const metadata: Metadata = {
-  title: 'XYLO AI | Autonomous Invoice Intelligence',
-  description: 'Next-generation AI agent system for autonomous invoice processing and fraud detection.',
+  title: 'VERTIXA AI | Autonomous Invoice Intelligence',
+  description: 'B2B Invoice Authenticity & Fraud Detection System Powered by Neural Agents',
 }
 
 export const viewport = {

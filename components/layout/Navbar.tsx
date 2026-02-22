@@ -24,19 +24,19 @@ export default function Navbar() {
                         <div className="bg-white/5 border border-white/10 rounded-full px-6 py-2 backdrop-blur-xl flex items-center space-x-8">
                             <Link href="#product" className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group">
                                 Product
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F6BFF] transition-all group-hover:w-full" />
                             </Link>
                             <Link href="#solutions" className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group">
                                 Solutions
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F6BFF] transition-all group-hover:w-full" />
                             </Link>
                             <Link href="#pricing" className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group">
                                 Pricing
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F6BFF] transition-all group-hover:w-full" />
                             </Link>
                             <Link href="#company" className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group">
                                 Company
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1F6BFF] transition-all group-hover:w-full" />
                             </Link>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ export default function Navbar() {
                         </Link>
                         <Link
                             href="/dashboard"
-                            className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-cyan-50 transition-colors shadow-[0_0_20px_-5px_rgba(255,255,255,0.4)] flex items-center gap-2 group"
+                            className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-blue-50 transition-colors shadow-[0_0_20px_-5px_rgba(255,255,255,0.4)] flex items-center gap-2 group"
                         >
                             Launch App <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>

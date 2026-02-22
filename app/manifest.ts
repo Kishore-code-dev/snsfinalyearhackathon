@@ -2,14 +2,13 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'XYLO AI | Autonomous Invoice Intelligence',
-        short_name: 'XYLO AI',
-        description: 'Next-generation AI agent system for autonomous invoice processing and fraud detection.',
+        name: 'VERTIXA AI | Autonomous Invoice Intelligence',
+        short_name: 'VERTIXA AI',
+        description: 'B2B Invoice Authenticity & Fraud Detection System',
         start_url: '/',
         display: 'standalone',
-        background_color: '#020002',
-        theme_color: '#8b5cf6', // Royal Purple theme color
-
+        background_color: '#0B0F14',
+        theme_color: '#1F6BFF',
         icons: [
             {
                 src: '/favicon.ico',

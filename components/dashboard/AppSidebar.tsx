@@ -73,16 +73,16 @@ export function AppSidebar() {
                     <motion.div
                         whileHover={{ rotate: 180 }}
                         transition={{ duration: 0.5 }}
-                        className="flex-shrink-0 bg-primary text-primary-foreground p-1.5 rounded-lg shadow-lg shadow-purple-500/20"
+                        className="flex-shrink-0 bg-primary text-primary-foreground p-1.5 rounded-lg shadow-lg shadow-blue-500/20"
                     >
-                        <Zap className="w-5 h-5 fill-current" />
+                        <ShieldAlert className="w-5 h-5 fill-current" />
                     </motion.div>
                     <motion.span
                         initial={{ opacity: 1 }}
                         animate={{ opacity: collapsed ? 0 : 1, width: collapsed ? 0 : "auto" }}
-                        className="font-bold text-lg tracking-tight bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent whitespace-nowrap"
+                        className="font-bold text-lg tracking-tight text-primary whitespace-nowrap"
                     >
-                        XYLO AI
+                        VERTIXA AI
                     </motion.span>
                 </div>
             </div>
