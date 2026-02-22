@@ -3,6 +3,7 @@ import { Outfit } from 'next/font/google'
 import './globals.css'
 import clsx from 'clsx'
 import NoiseOverlay from '@/components/ui/NoiseOverlay'
+import VisualMouseLayer from '@/components/visual-control/VisualMouseLayer'
 
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en" className="dark h-full">
       <body className={clsx(outfit.variable, 'font-sans antialiased h-full overflow-hidden bg-[#020005] text-white selection:bg-cyan-500 selection:text-black')}>
         <NoiseOverlay />
+        <VisualMouseLayer />
         {children}
       </body>
     </html>

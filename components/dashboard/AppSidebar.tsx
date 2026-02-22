@@ -13,7 +13,8 @@ import {
     Zap,
     LogOut,
     Wrench,
-    ChevronRight
+    ChevronRight,
+    Eye // Added Eye icon
 } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -43,6 +44,11 @@ const menuItems = [
         title: "AI Decision Logs",
         href: "/dashboard/logs",
         icon: FileClock,
+    },
+    {
+        title: "Visual Control",
+        href: "/dashboard/vision",
+        icon: Eye, // Importing Eye from lucide-react in next step if needed
     },
 ];
 

@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    swcMinify: true,
-    output: 'standalone',
 
     // Environment variables exposed to the browser
     env: {
@@ -12,25 +10,11 @@ const nextConfig = {
     // Image optimization
     images: {
         domains: [],
-        formats: ['image/avif', 'image/webp'],
     },
 
     // Production optimizations
     compress: true,
     poweredByHeader: false,
-
-    // Webpack configuration
-    webpack: (config, { isServer }) => {
-        if (!isServer) {
-            config.resolve.fallback = {
-                ...config.resolve.fallback,
-                fs: false,
-                net: false,
-                tls: false,
-            };
-        }
-        return config;
-    },
 
     // Headers for security
     async headers() {

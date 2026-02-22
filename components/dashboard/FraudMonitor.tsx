@@ -4,18 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { AlertCircle, FileWarning, ShieldAlert, UserX } from "lucide-react";
 
 const fraudStats = [
-    { title: "Fraud Alerts Today", value: "3", icon: ShieldAlert, color: "text-red-500", bg: "bg-red-500/10" },
-    { title: "High Risk Vendors", value: "12", icon: UserX, color: "text-orange-500", bg: "bg-orange-500/10" },
-    { title: "Duplicate Attempts", value: "8", icon: FileWarning, color: "text-yellow-500", bg: "bg-yellow-500/10" },
-    { title: "Amount Anomalies", value: "5", icon: AlertCircle, color: "text-purple-500", bg: "bg-purple-500/10" },
+    { title: "Fraud Alerts Today", value: "0", icon: ShieldAlert, color: "text-red-500", bg: "bg-red-500/10" },
+    { title: "High Risk Vendors", value: "0", icon: UserX, color: "text-orange-500", bg: "bg-orange-500/10" },
+    { title: "Duplicate Attempts", value: "0", icon: FileWarning, color: "text-yellow-500", bg: "bg-yellow-500/10" },
+    { title: "Amount Anomalies", value: "0", icon: AlertCircle, color: "text-purple-500", bg: "bg-purple-500/10" },
 ];
 
-const flaggedInvoices = [
-    { id: "INV-9921", vendor: "Unknown Supplier", amount: "$12,500", type: "First-Time Entity", risk: "High", status: "Blocked" },
-    { id: "INV-8842", vendor: "Acme Corp", amount: "$540", type: "Duplicate (INV-8841)", risk: "Medium", status: "Review" },
-    { id: "INV-7732", vendor: "Shell Inc", amount: "$94,000", type: "Amount Spike > 300%", risk: "Critical", status: "Investigating" },
-    { id: "INV-6621", vendor: "Tech Solutions", amount: "$2,100", type: "Bank Account Change", risk: "High", status: "Blocked" },
-];
+const flaggedInvoices: { id: string; vendor: string; amount: string; type: string; risk: string; status: string }[] = [];
 
 export default function FraudMonitor() {
     return (

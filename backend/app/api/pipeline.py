@@ -3,22 +3,25 @@ from backend.app.schemas.ai import InvoiceAnalysisRequest, AIAnalysisResult, db
 from backend.app.agents.extractor import InvoiceParserAgent
 from backend.app.agents.security import SecurityAgent
 from backend.app.agents.decision import DecisionAgent
-from typing import List
+from backend.app.agents.vision import vision_engine
+from typing import List, Dict, Any
 import PyPDF2
 import io
 import logging
 import base64
+import csv
 
-# OCR imports (with multiple fallback options)
+# --- File Handling Imports ---
 try:
+    from PIL import Image
     import pytesseract
     from pdf2image import convert_from_bytes
-    from PIL import Image
+    import openpyxl
+    from docx import Document
     OCR_AVAILABLE = True
 except ImportError:
     OCR_AVAILABLE = False
     pytesseract = None
-    convert_from_bytes = None
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -30,87 +33,79 @@ extractor = InvoiceParserAgent()
 security = SecurityAgent()
 decision_engine = DecisionAgent()
 
-def extract_text_with_ocr_fallback(pdf_contents: bytes) -> str:
+def extract_text_from_file(file_contents: bytes, filename: str) -> str:
     """
-    Intelligent text extraction with multiple fallback strategies.
-    Returns extracted text or raises helpful error.
+    Universal Text Extractor for PDF, Images, Excel, Word, and Text.
     """
-    raw_text = ""
+    ext = filename.lower().split('.')[-1]
+    logger.info(f"📂 Extracting text from .{ext} file")
     
-    # === STRATEGY 1: PyPDF2 (Fast, but only works for text-based PDFs) ===
-    try:
-        pdf_reader = PyPDF2.PdfReader(io.BytesIO(pdf_contents))
-        num_pages = len(pdf_reader.pages)
-        logger.info(f"📑 PDF has {num_pages} pages")
-        
-        for page_num, page in enumerate(pdf_reader.pages):
-            page_text = page.extract_text()
-            logger.info(f"   Page {page_num + 1}: {len(page_text)} chars")
-            raw_text += page_text + "\n"
-        
-        logger.info(f"✅ PyPDF2 total: {len(raw_text)} chars")
-        
-    except Exception as pdf_error:
-        logger.error(f"❌ PyPDF2 failed: {str(pdf_error)}")
-        raise HTTPException(400, f"PDF reading error: {str(pdf_error)}")
-    
-    # === STRATEGY 2: Check if we got enough text ===
-    if raw_text.strip() and len(raw_text.strip()) >= 50:
-        logger.info("✅ Sufficient text extracted via PyPDF2")
-        return raw_text
-    
-    # === STRATEGY 3: OCR Required ===
-    logger.warning(f"⚠️ Only {len(raw_text.strip())} chars - PDF is likely scanned/image-based")
-    
-    if not OCR_AVAILABLE:
-        raise HTTPException(
-            400,
-            detail="This PDF is scanned (image-based). OCR libraries missing. For full support: 1) Install Tesseract from https://github.com/UB-Mannheim/tesseract/wiki or 2) Use 'Paste Text' tab instead."
-        )
-    
-    # === STRATEGY 4: Tesseract OCR ===
-    logger.info("🔍 Attempting Tesseract OCR...")
-    
-    try:
-        # Check if Tesseract is actually installed
-        tesseract_test = pytesseract.get_tesseract_version()
-        logger.info(f"✅ Tesseract version: {tesseract_test}")
-        
-    except Exception as tess_check:
-        logger.error(f"❌ Tesseract not found: {str(tess_check)}")
-        
-        raise HTTPException(
-            500,
-            detail=f"Scanned PDF detected, but Tesseract OCR not installed. Download from: https://github.com/UB-Mannheim/tesseract/wiki (Windows installer). Add to PATH, then restart backend. OR use 'Paste Text' tab."
-        )
-    
-    try:
-        # Convert PDF to images
-        images = convert_from_bytes(pdf_contents, dpi=300)
-        logger.info(f"🖼️ Converted {len(images)} pages to images")
-        
-        raw_text = ""
-        for page_num, image in enumerate(images):
-            logger.info(f"   OCR processing page {page_num + 1}...")
-            page_text = pytesseract.image_to_string(image, lang='eng')
-            raw_text += page_text + "\n"
-            logger.info(f"   ✅ Page {page_num + 1}: {len(page_text)} chars via OCR")
-        
-        logger.info(f"✅ OCR total: {len(raw_text)} chars")
-        
-        if not raw_text.strip():
-            raise HTTPException(
-                400,
-                "OCR extracted no text. PDF may be encrypted, extremely low quality, or in unsupported language."
-            )
-        
-        return raw_text
-        
-    except HTTPException:
-        raise
-    except Exception as ocr_error:
-        logger.error(f"❌ OCR failed: {str(ocr_error)}", exc_info=True)
-        raise HTTPException(500, f"OCR processing error: {str(ocr_error)}")
+    # ── 1. PDF HANDLING ──────────────────────────────────────────────────────
+    if ext == 'pdf':
+        text = ""
+        # Try PyPDF2 first
+        try:
+            pdf_reader = PyPDF2.PdfReader(io.BytesIO(file_contents))
+            for page in pdf_reader.pages:
+                text += page.extract_text() + "\n"
+        except Exception as e:
+            logger.warning(f"PyPDF2 failed: {e}")
+            
+        # If PyPDF2 failed or returned little text, use OCR
+        if len(text.strip()) < 50 and OCR_AVAILABLE:
+            logger.info("🔍 PDF text scanty - switching to OCR")
+            try:
+                images = convert_from_bytes(file_contents)
+                text = ""
+                for img in images:
+                    text += pytesseract.image_to_string(img) + "\n"
+            except Exception as e:
+                logger.error(f"OCR failed: {e}")
+                
+        return text
+
+    # ── 2. IMAGE HANDLING (JPG, PNG, WEBP) ───────────────────────────────────
+    elif ext in ['jpg', 'jpeg', 'png', 'webp', 'bmp', 'tiff']:
+        if not OCR_AVAILABLE:
+            raise HTTPException(400, "OCR libraries not installed. Cannot process images.")
+        try:
+            image = Image.open(io.BytesIO(file_contents))
+            return pytesseract.image_to_string(image)
+        except Exception as e:
+            raise HTTPException(400, f"Image OCR failed: {str(e)}")
+
+    # ── 3. WORD DOCUMENTS (DOCX) ─────────────────────────────────────────────
+    elif ext == 'docx':
+        try:
+            doc = Document(io.BytesIO(file_contents))
+            return "\n".join([p.text for p in doc.paragraphs])
+        except Exception as e:
+            raise HTTPException(400, f"DOCX read failed: {str(e)}")
+
+    # ── 4. EXCEL SPREADSHEETS (XLSX) ─────────────────────────────────────────
+    elif ext == 'xlsx':
+        try:
+            wb = openpyxl.load_workbook(io.BytesIO(file_contents), data_only=True)
+            text = ""
+            for sheet in wb.sheetnames:
+                ws = wb[sheet]
+                for row in ws.values:
+                    # Convert row cells to string and join
+                    row_text = " ".join([str(cell) for cell in row if cell is not None])
+                    text += row_text + "\n"
+            return text
+        except Exception as e:
+            raise HTTPException(400, f"Excel read failed: {str(e)}")
+
+    # ── 5. PLAIN TEXT / CSV ──────────────────────────────────────────────────
+    elif ext in ['txt', 'csv', 'md', 'log']:
+        try:
+            return file_contents.decode('utf-8', errors='ignore')
+        except Exception as e:
+            raise HTTPException(400, f"Text read failed: {str(e)}")
+
+    else:
+        raise HTTPException(400, f"Unsupported file extension: .{ext}")
 
 @router.post("/process-invoice", response_model=AIAnalysisResult)
 async def process_invoice(payload: InvoiceAnalysisRequest):
@@ -154,27 +149,24 @@ async def process_invoice(payload: InvoiceAnalysisRequest):
 @router.post("/process-invoice-file", response_model=AIAnalysisResult)
 async def process_invoice_file(file: UploadFile = File(...)):
     """
-    AI Pipeline with Smart Text Extraction
-    Handles both text-based and scanned PDFs
+    AI Pipeline with Universal File Support
+    Handles PDF, Images, Excel, Word, Text, CSV
     """
     
     if not file.filename:
         raise HTTPException(400, "No filename provided")
     
-    file_ext = file.filename.lower().split('.')[-1]
-    logger.info(f"📄 Processing: {file.filename}")
-    
-    if file_ext != 'pdf':
-        raise HTTPException(400, f"Only PDF supported. Got: {file_ext}")
+    logger.info(f"📄 Processing file: {file.filename}")
     
     try:
         contents = await file.read()
         logger.info(f"📦 File size: {len(contents)} bytes")
         
-        # Extract text (with OCR if needed)
-        raw_text = extract_text_with_ocr_fallback(contents)
+        # Universal Text Extraction
+        raw_text = extract_text_from_file(contents, file.filename)
         
-        logger.info(f"📝 Preview (200 chars): {raw_text[:200]}")
+        logger.info(f"📝 Extracted {len(raw_text)} chars")
+        logger.info(f"📝 Preview: {raw_text[:200]}")
         
         # Extract invoice data
         extracted_data = extractor.extract(raw_text)
@@ -183,7 +175,17 @@ async def process_invoice_file(file: UploadFile = File(...)):
         if extracted_data.get('amount', 0) == 0:
             logger.warning("⚠️ Amount = 0 (unusual format)")
         
-        # Security pipeline
+        from backend.app.services.erp_mock import erp_system
+        
+        # Extract Metadata for Forensics
+        file_metadata = {}
+        try:
+            pdf_reader = PyPDF2.PdfReader(io.BytesIO(contents))
+            file_metadata = {key.strip('/'): value for key, value in pdf_reader.metadata.items()} if pdf_reader.metadata else {}
+        except:
+            pass
+            
+        # Security & ERP pipeline
         fingerprint = security.fingerprint(
             vendor=extracted_data.get('vendor_name', ''),
             inv_id=extracted_data.get('invoice_number', ''),
@@ -192,11 +194,27 @@ async def process_invoice_file(file: UploadFile = File(...)):
         is_duplicate = security.check_duplicate(fingerprint)
         vendor_trust = security.verify_vendor(extracted_data.get('vendor_name', ''))
         
+        # New Validations
+        gst_validation = security.verify_gstin(extracted_data.get('gstin', ''))
+        digital_forensics = security.analyze_digital_footprint(file_metadata)
+        
+        # Bank Verification (3-Way Match critical step)
+        bank_validation = security.verify_bank_details(vendor_trust.get('data'), extracted_data)
+        
+        # ERP Validation
+        erp_check = {"valid": False, "message": "No PO found"}
+        if extracted_data.get('po_number'):
+            erp_check = erp_system.check_po(extracted_data.get('po_number'))
+        
         security_context = {
             "is_duplicate": is_duplicate,
             "vendor_status": vendor_trust.get('status'),
             "vendor_score": vendor_trust.get('score'),
-            "fingerprint": fingerprint
+            "fingerprint": fingerprint,
+            "erp_validation": erp_check,
+            "gst_validation": gst_validation,
+            "digital_forensics": digital_forensics,
+            "bank_validation": bank_validation
         }
 
         analysis_result = decision_engine.evaluate(extracted_data, security_context)
@@ -265,3 +283,32 @@ async def debug_extract(file: UploadFile = File(...)):
             "error": e.detail,
             "status_code": e.status_code
         }
+
+# --- VISION AI ENDPOINTS (Advanced Visual Control) ---
+
+@router.post("/vision/analyze-frame")
+async def analyze_frame(file: UploadFile = File(...)):
+    """
+    Real-Time Vision Analysis Endpoint.
+    Accepts raw video frame -> Runs YOLOv8 -> Returns analysis + annotated image.
+    """
+    try:
+        contents = await file.read()
+        
+        # Run Vision Agent
+        analysis_data, annotated_image = vision_engine.detect_objects(contents)
+        
+        # Determine safety status (example: Person detected = Alert)
+        is_safe = not analysis_data.get("safety_alert", False)
+        
+        return {
+            "analysis": analysis_data,
+            "annotated_frame_base64": base64.b64encode(annotated_image).decode('utf-8'),
+            "system_status": "MONITORING" if is_safe else "ALERT",
+            "threat_level": "LOW" if is_safe else "HIGH"
+        }
+        
+    except Exception as e:
+        logger.error(f"Vision Error: {e}")
+        raise HTTPException(500, f"Vision AI Failed: {str(e)}")
+

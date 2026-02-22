@@ -5,7 +5,11 @@ class InvoiceData(BaseModel):
     vendor_name: str
     invoice_number: str
     amount: float
+    currency: str = "USD"
+    po_number: Optional[str] = None
+    gstin: Optional[str] = None
     raw_text: str = None
+    file_metadata: Dict[str, Any] = {} # For digital fingerprinting
     file_url: Optional[str] = None
 
 class ConfidenceScore(BaseModel):

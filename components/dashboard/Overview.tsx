@@ -3,26 +3,27 @@
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, PieChart, Pie, Cell, BarChart, Bar, Legend } from "recharts";
 
 const dataLine = [
-    { name: "Jan", total: 1240 },
-    { name: "Feb", total: 1080 },
-    { name: "Mar", total: 1560 },
-    { name: "Apr", total: 1890 },
-    { name: "May", total: 2390 },
-    { name: "Jun", total: 3490 },
-    { name: "Jul", total: 3800 },
+    { name: "Jan", total: 0 },
+    { name: "Feb", total: 0 },
+    { name: "Mar", total: 0 },
+    { name: "Apr", total: 0 },
+    { name: "May", total: 0 },
+    { name: "Jun", total: 0 },
+    { name: "Jul", total: 0 },
 ];
 
 const dataPie = [
-    { name: "Approved", value: 65, color: "#3b82f6" },
-    { name: "Review", value: 25, color: "#facc15" },
-    { name: "Blocked", value: 10, color: "#ef4444" },
+    { name: "Approved", value: 0, color: "#3b82f6" },
+    { name: "Review", value: 0, color: "#facc15" },
+    { name: "Blocked", value: 0, color: "#ef4444" },
 ];
 
 const dataBar = [
-    { name: "Duplicate", value: 40 },
-    { name: "Amount Mismatch", value: 30 },
-    { name: "Unknown Vendor", value: 20 },
-    { name: "Date Anomaly", value: 10 },
+    { name: "Duplicate", value: 0 },
+    { name: "Rate Variance", value: 0 },
+    { name: "Missing PO", value: 0 },
+    { name: "New Vendor", value: 0 },
+    { name: "Amount Spike", value: 0 },
 ];
 
 export function Overview() {
