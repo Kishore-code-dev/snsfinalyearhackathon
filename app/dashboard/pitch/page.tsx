@@ -20,37 +20,37 @@ const sections = [
     {
         title: "Team Introduction",
         icon: Users,
-        content: "Team Name: **XYLO Intelligence**\n\n**Kishore**: Full-Stack AI Engineer & Lead Architect. Responsible for End-to-End system design, AI Agent orchestration, and Premium UX implementation.",
-        color: "text-purple-400"
-    },
-    {
-        title: "Problem Statement",
-        icon: Target,
-        content: "Manual invoice processing is a massive bottleneck for modern enterprises.\n\n• **Time Consuming**: Manual entry takes minutes per invoice.\n• **Error Prone**: Human errors lead to incorrect payments.\n• **Fraud Vulnerability**: Enterprises lose billions annually to duplicates and phishing.\n• **No Audit Trail**: Hard to track *why* a decision was made.",
-        color: "text-red-400"
-    },
-    {
-        title: "Proposed Solution",
-        icon: Lightbulb,
-        content: "**XYLO** is an autonomous AI Invoice Intelligence System. It doesn't just read invoices; it **understands** and **governs** them.\n\n• **Autonomous Extraction**: Instantly pulls data from PDFs and images.\n• **Multi-Agent Security**: Verifies vendor trust and detects fraud autonomously.\n• **Explainable Decisions**: Clear reasoning trails for every action.",
-        color: "text-yellow-400"
-    },
-    {
-        title: "Technical Approach",
-        icon: Cpu,
-        content: "• **Frontend**: Next.js 16 + React 19 + Framer Motion for cinematic UX.\n• **Backend**: FastAPI (Python 3.11) for high-throughput AI agents.\n• **AI Engine**: Multi-Agent architecture (Extraction, Security, Decision).\n• **Vision AI**: YOLOv8 integration for real-time visual inspection.",
+        content: "Team Name: **VERTIXA Institutional**\n\n**Kishore**: Full-Stack AI Engineer & Lead Architect. Responsible for End-to-End system design, AI Agent orchestration, and Premium UX implementation.",
         color: "text-blue-400"
     },
     {
-        title: "Innovation & Uniqueness",
-        icon: Zap,
-        content: "• **Digital Forensics**: Analyzes PDF metadata to detect document forgery.\n• **Vision Integration**: First-of-its-kind Vision AI integration in finance.\n• **Cinematic UX**: Luxury glassmorphic design redefining enterprise software.",
-        color: "text-orange-400"
+        title: "The Threat Landscape",
+        icon: Target,
+        content: "Manual invoice processing is a massive security bottleneck for modern local businesses.\n\n• **Phishing Vulnerability**: 80% of businesses are exposed to fake invoice fraud.\n• **High Stakes**: Human error leads to millions in untraceable losses.\n• **Audit Gap**: Traditional ERPs lack forensic trails for payment approvals.\n• **Manual Friction**: CFO visibility is limited by spreadsheet delays.",
+        color: "text-red-400"
     },
     {
-        title: "Impact & Use Case",
+        title: "The Proposed Solution",
+        icon: Lightbulb,
+        content: "**VERTIXA** is an institutional-grade AI Authentication System. It doesn't just read invoices; it **authenticates** and **governs** them.\n\n• **Forensic Extraction**: Neural agents verify signatures and metadata instantly.\n• **Deep Integration**: Cross-references every bank detail against vendor master data.\n• **Risk Scoring**: Real-time anomaly detection for every transaction before payment.",
+        color: "text-blue-500"
+    },
+    {
+        title: "Institutional Approach",
+        icon: Cpu,
+        content: "• **Infrastructure**: Next.js 16 + React 19 + Framer Motion for high-fidelity UX.\n• **Intelligence Layer**: Specialized neural agents for extraction and fraud detection.\n• **Neural Logic**: Autonomous negotiation agents resolve sub-tolerance variances.\n• **Cyber-Defense**: Institutional blue palette with forensic HUD monitoring.",
+        color: "text-blue-400"
+    },
+    {
+        title: "Unique Value Prop",
+        icon: Zap,
+        content: "• **Digital Forensics**: Analyzes PDF metadata to detect invoice manipulation.\n• **Autonomous Governance**: Eliminates human middleware in payment approval.\n• **CFO Command Center**: Premium, asymmetrical HUD for real-time risk monitoring.",
+        color: "text-[#FF3B3B]"
+    },
+    {
+        title: "Strategic Impact",
         icon: TrendingUp,
-        content: "• **Target**: CFOs and Finance Teams in mid-to-large enterprises.\n• **Impact**: 85% reduction in costs, 99.9% fraud detection accuracy.\n• **Automation**: Zero-touch straight-through processing for trusted vendors.",
+        content: "• **Target**: CFOs and Finance Controllers in local B2B sectors.\n• **Impact**: 90% reduction in fraudulent payouts, 99.98% audit accuracy.\n• **Automation**: Straight-through processing for trusted, verified vendor signals.",
         color: "text-green-400"
     }
 ];
@@ -69,10 +69,10 @@ export default function PitchPage() {
                     <span className="text-xs font-bold uppercase tracking-widest">Hackathon Pitch Deck</span>
                 </div>
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-                    XYLO <span className="text-primary italic">INTELLIGENCE</span>
+                    VERTIXA <span className="text-primary italic">INSTITUTIONAL</span>
                 </h1>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    The future of the autonomous back-office. Powered by Agentic AI and Vision Intelligence.
+                    The future of the autonomous back-office. Powered by Agentic AI and Forensic Intelligence.
                 </p>
             </motion.div>
 
@@ -115,7 +115,7 @@ export default function PitchPage() {
                 <Trophy className="w-16 h-16 mx-auto text-yellow-500 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]" />
                 <h2 className="text-3xl font-bold">Ready for the Agentic Revolution</h2>
                 <p className="text-muted-foreground max-w-xl mx-auto">
-                    XYLO isn't just a tool; it's a redefinition of how businesses handle their most critical financial data.
+                    VERTIXA isn't just a tool; it's a redefinition of how businesses handle their most critical financial data.
                 </p>
                 <div className="flex justify-center gap-4">
                     <Badge variant="outline" className="px-6 py-2 text-sm border-primary/30 text-primary">Scalable</Badge>

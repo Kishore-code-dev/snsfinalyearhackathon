@@ -6,20 +6,20 @@ import { useState } from "react";
 
 const faqs = [
     {
-        q: "How does XYLO integrate with SAP or NetSuite?",
-        a: "XYLO uses a non-intrusive API layer that sits on top of your existing ERP. We don't replace your system of record; we make it intelligent by reading/writing data via secure connectors."
+        q: "How does VERTIXA integrate with SAP or NetSuite?",
+        a: "VERTIXA uses a non-intrusive API layer that sits on top of your existing ERP. We don't replace your system of record; we make it intelligent by reading/writing data via secure connectors."
     },
     {
-        "q": "Is my data secure?",
-        "a": "Yes. We are SOC2 Type II compliant. All data is encrypted at rest and in transit. We use role-based access control (RBAC) to ensure only authorized personnel can view sensitive pricing."
+        q: "Is my data secure?",
+        a: "Yes. We are SOC2 Type II compliant. All institutional data is encrypted with AES-256 at rest and in transit. We use role-based access control (RBAC) specifically tailored for CFO oversight."
     },
     {
-        "q": "How accurate is the AI matching?",
-        "a": "Our models are trained on millions of procurement documents. We typically achieve 98%+ accuracy on standard invoices. For ambiguous cases, the system flags a 'Variance' for human review."
+        q: "How does the Neural Matching work?",
+        a: "Our neural agents analyze semantic structures in documents, not just text. We achieve 99.98% accuracy on fraud detection, flagging even subtly altered bank details for human review."
     },
     {
-        "q": "Can I customize the variance tolerance?",
-        "a": "Absolutely. You can set specific tolerance levels (e.g., $10 or 3%) per supplier, category, or project. The AI respects these rules automatically."
+        q: "Can I customize the risk tolerance?",
+        a: "Absolutely. You can set specific algorithmic tolerance levels (e.g., $10 or 3%) per vendor profile. The system autonomously negotiates or blocks payments based on these guardrails."
     }
 ];
 
@@ -33,7 +33,7 @@ export default function FAQSection() {
             <div className="max-w-4xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Technical <span className="text-white/30 italic">Insights.</span></h2>
-                    <p className="text-white/40">Everything you need to know about the XYLO Intelligence Layer.</p>
+                    <p className="text-white/40">Everything you need to know about the VERTIXA Intelligence Layer.</p>
                 </div>
 
                 <div className="space-y-4">

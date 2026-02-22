@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "XYLO AI Invoice Backend"
+    PROJECT_NAME: str = "VERTIXA AI Invoice Backend"
     API_V1_STR: str = "/api/v1"
     
     # AI settings

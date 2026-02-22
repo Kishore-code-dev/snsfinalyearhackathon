@@ -1,6 +1,6 @@
 /**
- * Mock Data Service for XYLO
- * This simulates the backend connection to an ontology-based ERP data store.
+ * Mock Data Service for VERTIXA
+ * This simulates the backend connection to an institutional fraud authentication layer.
  */
 
 import { Invoice, PurchaseOrder, AIOperationResult } from '@/models/types';

@@ -31,7 +31,7 @@ buyer_agent = AssistantAgent(
 
 # 3. The Proxy (Orchestrator)
 user_proxy = UserProxyAgent(
-    name="XYLO_Orchestrator",
+    name="VERTIXA_Orchestrator",
     human_input_mode="NEVER", # Autonomous mode
     max_consecutive_auto_reply=2,
     is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),

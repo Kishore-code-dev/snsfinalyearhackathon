@@ -1,10 +1,10 @@
-# XYLO AI - GitHub Automation Script
+# VERTIXA Institutional - GitHub Automation Script
 param (
     [Parameter(Mandatory = $true)]
     [string]$RepoUrl
 )
 
-Write-Host "🚀 Preparing to push XYLO AI to GitHub..." -ForegroundColor Cyan
+Write-Host "🚀 Preparing to push VERTIXA Institutional to GitHub..." -ForegroundColor Blue
 
 if (!(git rev-parse --is-inside-work-tree 2>$null)) {
     Write-Host "📂 Initializing Git repository..."
@@ -14,7 +14,7 @@ if (!(git rev-parse --is-inside-work-tree 2>$null)) {
 Write-Host "📦 Staging files..."
 git add .
 
-$commitMsg = "Final: XYLO AI Invoice System with Premium UI and Pitch Deck"
+$commitMsg = "Strategic Upgrade: Implemented VERTIXA Institutional Guard. Cleaned legacy artifacts. Build verified."
 Write-Host "💾 Committing changes: $commitMsg"
 git commit -m $commitMsg
 

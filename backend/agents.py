@@ -74,7 +74,7 @@ task3_decide = Task(
 
 # --- CREW ORCHESTRATION ---
 
-xylo_crew = Crew(
+vertixa_crew = Crew(
     agents=[invoice_reader, po_matcher, compliance_officer],
     tasks=[task1_extract, task2_match, task3_decide],
     process=Process.sequential,  # Agents work in a chain
@@ -83,7 +83,7 @@ xylo_crew = Crew(
 
 # --- EXECUTION ---
 if __name__ == "__main__":
-    print("## STARTING XYLO CREW AI SWARM ##")
-    result = xylo_crew.kickoff()
+    print("## STARTING VERTIXA CORE AI SWARM ##")
+    result = vertixa_crew.kickoff()
     print("#################################")
     print(result)
