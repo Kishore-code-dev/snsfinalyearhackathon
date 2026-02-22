@@ -13,10 +13,15 @@ origins = [
     "http://localhost:3000",
     "http://127.0.0.1:7575",
     "http://127.0.0.1:3000",
-    # Production URLs (update these after deployment)
-    "https://*.vercel.app",  # Vercel deployments
-    "https://*.railway.app",  # Railway deployments
+    # Production URLs
+    "https://xylo-frontend.onrender.com",
+    "https://*.onrender.com",
+    "https://*.vercel.app",
+    "https://*.railway.app",
+    # Permissive for Hackathon Demo
+    "*",
 ]
+
 
 app.add_middleware(
     CORSMiddleware,
