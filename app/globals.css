@@ -1,67 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  /* Clean Corporate Theme (Light) */
-  --background: 0 0% 100%;
-  /* Pure White */
-  --foreground: 222 47% 11%;
-  /* Deep Slate Check */
+  /* DARK THEME - Premium Royal Purple */
+  --background: 260 30% 2%;
+  /* Deep Space Black-Purple */
+  --foreground: 260 20% 98%;
+  /* Crisp White */
 
-  --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
+  --card: 260 30% 4%;
+  /* Elevated Dark Purple Card */
+  --card-foreground: 260 20% 98%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
+  --popover: 260 30% 4%;
+  --popover-foreground: 260 20% 98%;
 
-  /* PRIMARY: Deep Enterprise Blue (Financial Trust) */
-  --primary: 221 83% 53%;
-  /* #3b82f6 - Standard Blue, but tweaked to feel corporate */
-  --primary-foreground: 210 40% 98%;
+  /* PRIMARY: Royal Electric Purple */
+  --primary: 265 89% 65%;
+  /* #a855f7 - Premium Purple */
+  --primary-foreground: 260 20% 98%;
 
-  /* SECONDARY: Soft Grayish Blue for subtle UI */
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222 47% 11%;
+  /* SECONDARY: Muted Galactic Blue/Purple */
+  --secondary: 260 25% 12%;
+  --secondary-foreground: 260 20% 98%;
 
-  /* MUTED: For secondary text */
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  /* MUTED */
+  --muted: 260 25% 12%;
+  --muted-foreground: 260 10% 70%;
 
-  /* ACCENT: Highlights */
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222 47% 11%;
+  /* ACCENT: Glass Stroke / Highlight */
+  --accent: 265 89% 65%;
+  --accent-foreground: 260 20% 98%;
 
-  /* DESTRUCTIVE: Red for Blocked/Fraud */
+  /* DESTRUCTIVE: Neon Crimson for Fraud */
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221 83% 53%;
+  --border: 260 25% 15%;
+  --input: 260 25% 15%;
+  --ring: 265 89% 65%;
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
-  /* Charts - Enterprise Palette */
-  --chart-1: 221 83% 53%;
-  /* Blue */
-  --chart-2: 173 58% 39%;
-  /* Teal */
-  --chart-3: 197 37% 24%;
-  /* Dark Slate */
-  --chart-4: 43 74% 66%;
-  /* Gold (Warning/Review) */
+  /* Charts */
+  --chart-1: 265 89% 65%;
+  /* Primary Purple */
+  --chart-2: 280 80% 60%;
+  /* Magenta */
+  --chart-3: 190 90% 60%;
+  /* Cyan Accent */
+  --chart-4: 250 90% 70%;
+  /* Light Lavender */
   --chart-5: 0 84% 60%;
-  /* Red (Fraud) */
+  /* Crimson */
 
-  /* Sidebar Theme */
-  --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 240 5.9% 10%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Sidebar Theme - Dark Integrated */
+  --sidebar-background: 260 30% 3%;
+  --sidebar-foreground: 260 10% 80%;
+  --sidebar-primary: 265 89% 65%;
+  --sidebar-primary-foreground: 260 20% 98%;
+  --sidebar-accent: 260 25% 10%;
+  --sidebar-accent-foreground: 265 89% 65%;
+  --sidebar-border: 260 25% 10%;
+  --sidebar-ring: 265 89% 65%;
 }
+
 
 @theme {
   --color-neo-cyan: var(--primary);

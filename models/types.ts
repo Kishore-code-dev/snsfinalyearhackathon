@@ -38,3 +38,9 @@ export interface PurchaseOrder {
     items: string[];
 }
 
+export interface AIOperationResult {
+    success: boolean;
+    message: string;
+    confidenceScore?: number;
+    actionTaken?: string;
+}

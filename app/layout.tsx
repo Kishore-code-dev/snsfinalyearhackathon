@@ -8,12 +8,13 @@ import VisualMouseLayer from '@/components/visual-control/VisualMouseLayer'
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 
 export const metadata: Metadata = {
-  title: 'XYLO | Biological Supply Chain Web App',
-  description: 'Living Intelligence for modern supply chains. A Next.js Web Application.',
+  title: 'XYLO AI | Autonomous Invoice Intelligence',
+  description: 'Next-generation AI agent system for autonomous invoice processing and fraud detection.',
 }
 
 export const viewport = {
-  themeColor: '#020005',
+  themeColor: '#020002',
+
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -27,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark h-full">
-      <body className={clsx(outfit.variable, 'font-sans antialiased h-full overflow-hidden bg-[#020005] text-white selection:bg-cyan-500 selection:text-black')}>
+      <body className={clsx(outfit.variable, 'font-sans antialiased h-full overflow-hidden bg-[#020002] text-white selection:bg-purple-500 selection:text-white')}>
         <NoiseOverlay />
         <VisualMouseLayer />
         {children}
