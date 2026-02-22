@@ -45,7 +45,7 @@ export default function ProblemLuxe() {
                             transition={{ delay: 0.1 }}
                             className="text-white/50 text-xl leading-relaxed max-w-lg mb-12"
                         >
-                            Supply chains move at the speed of light, but procurement teams are still moving at the speed of 1995.
+                            Global transactions occur in milliseconds, but verification checks are still manual, leaving local businesses exposed to sophisticated invoice manipulation.
                         </motion.p>
 
                         <div className="flex items-center gap-4 p-4 rounded-2xl glass border border-red-500/20 max-w-sm">

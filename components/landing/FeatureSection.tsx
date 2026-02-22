@@ -47,7 +47,7 @@ export default function FeatureSection() {
             <div className="max-w-7xl mx-auto px-6">
 
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <h2 className="text-sm font-semibold tracking-[0.2em] text-cyan-400 uppercase mb-4">The XYLO Architecture</h2>
+                    <h2 className="text-sm font-semibold tracking-[0.2em] text-[#1F6BFF] uppercase mb-4">The VERTIXA Infrastructure</h2>
                     <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         Built for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Cognitive Supply Chain</span>
                     </h3>

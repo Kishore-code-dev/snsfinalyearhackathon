@@ -82,8 +82,8 @@ export default function ComparisonSection() {
                                 <Network className="w-6 h-6 text-cyan-400" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-white">The XYLO Neural Network</h3>
-                                <p className="text-xs text-cyan-400 font-mono uppercase tracking-wider animate-pulse">Live & Autonomous</p>
+                                <h3 className="text-xl font-bold text-white">The VERTIXA Institutional Guard</h3>
+                                <p className="text-xs text-[#1F6BFF] font-mono uppercase tracking-wider animate-pulse">Live & Autonomous</p>
                             </div>
                         </div>
 

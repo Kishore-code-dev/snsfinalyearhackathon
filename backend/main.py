@@ -14,7 +14,7 @@ origins = [
     "http://127.0.0.1:7575",
     "http://127.0.0.1:3000",
     # Production URLs
-    "https://vertixa-frontend.onrender.com",
+    "https://xylo-frontend.onrender.com",
     "https://*.onrender.com",
     "https://*.vercel.app",
     "https://*.railway.app",

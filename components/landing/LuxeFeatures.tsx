@@ -66,7 +66,7 @@ export default function LuxeFeatures() {
                         transition={{ delay: 0.1 }}
                         className="text-white/40 text-lg max-w-2xl mx-auto"
                     >
-                        XYLO combines the power of large language models with production-grade engineering to automate your entire back-office.
+                        VERTIXA combines the power of large language models with production-grade engineering to automate your entire back-office.
                     </motion.p>
                 </div>
 

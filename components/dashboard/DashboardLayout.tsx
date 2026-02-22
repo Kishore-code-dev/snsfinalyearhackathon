@@ -53,7 +53,7 @@ export default function DashboardLayout() {
             {/* Header */}
             <header className="relative z-10 flex justify-between items-center mb-10 border-b border-white/10 pb-4">
                 <div>
-                    <h1 className="text-2xl font-bold tracking-wider text-cyan-400">XYLO <span className="text-white/50 text-sm font-normal">| Neural Supply Chain</span></h1>
+                    <h1 className="text-2xl font-bold tracking-wider text-[#1F6BFF]">VERTIXA <span className="text-white/30 text-xs font-bold uppercase tracking-widest pl-2">| Institutional Guard</span></h1>
                 </div>
                 <div className="flex gap-4">
                     <div className="px-4 py-2 bg-white/5 rounded-full border border-white/10 flex items-center gap-2 text-sm text-gray-400 backdrop-blur-sm">
@@ -152,7 +152,7 @@ export default function DashboardLayout() {
 
                         <h2 className="text-2xl font-bold text-white mb-2 relative z-10">Neural Core</h2>
                         <p className="text-white/50 text-sm mb-8 relative z-10 leading-relaxed">
-                            Analyzing signal patterns and reconciling variances across <span className="text-cyan-400">3-way vectors</span>.
+                            Analyzing signal patterns and reconciling variances across <span className="text-[#1F6BFF]">Verification Vectors</span>.
                         </p>
 
                         <div className="space-y-4 relative z-10">
