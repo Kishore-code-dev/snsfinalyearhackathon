@@ -1,7 +1,7 @@
 services:
   # Python Backend (FastAPI with Docker for OCR/Vision)
   - type: web
-    name: xylo-backend
+    name: vertixa-backend
     env: docker
     plan: free
     envVars:
@@ -10,14 +10,14 @@ services:
 
   # Next.js Frontend
   - type: web
-    name: xylo-frontend
+    name: vertixa-frontend
     env: node
     plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: https://xylo-backend.onrender.com
+        value: https://vertixa-backend.onrender.com
       - key: NODE_VERSION
         value: 20.x
 
